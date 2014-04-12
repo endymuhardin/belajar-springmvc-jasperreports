@@ -12,9 +12,21 @@
         http://www.springframework.org/schema/context
         http://www.springframework.org/schema/context/spring-context.xsd">
 
+    <util:map id="daftarLokasiTemplateSubreport">
+        <!-- nilai key harus sama dengan yang dideklarasikan dalam daftar-anggota.jrxml -->
+        <entry key="SubReportKantor" value="/WEB-INF/templates/jrxml/kantor.jrxml"/>
+    </util:map>
+    
+    <util:list id="namaVariabelDatasourceDalamSubreport">
+        <value>dataSourceSubreport</value>
+    </util:list>
+    
     <bean id="anggota/export" class="org.springframework.web.servlet.view.jasperreports.JasperReportsMultiFormatView"
     
-        p:url="/WEB-INF/templates/jrxml/daftar-anggota.jrxml"
+          p:url="/WEB-INF/templates/jrxml/daftar-anggota.jrxml"
+          p:subReportUrls-ref="daftarLokasiTemplateSubreport"
+          p:reportDataKey="dataSource"
+          p:subReportDataKeys-ref="namaVariabelDatasourceDalamSubreport"
     
     />
     

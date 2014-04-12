@@ -26,6 +26,7 @@ public class HaloController {
         return new ModelMap()
                 .addAttribute("format", format)
                 .addAttribute("tanggal", new Date())
-                .addAttribute("dataSource", service.semuaAnggota());
+                .addAttribute("dataSource", service.semuaAnggota())
+                .addAttribute("dataSourceSubreport", service.semuaKantor());
     }
 }

@@ -4,6 +4,8 @@
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
 	<parameter name="tanggal" class="java.util.Date"/>
+	<parameter name="SubReportKantor" class="net.sf.jasperreports.engine.JasperReport"/>
+	<parameter name="dataSourceSubreport" class="net.sf.jasperreports.engine.data.JRBeanCollectionDataSource" isForPrompting="false"/>
 	<field name="nama" class="java.lang.String"/>
 	<field name="tanggalLahir" class="java.util.Date"/>
 	<field name="email" class="java.lang.String"/>
@@ -202,6 +204,22 @@
 		</band>
 	</pageFooter>
 	<summary>
-		<band splitType="Stretch"/>
+		<band height="200" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="f3d93d0a-816e-41e1-b747-fa509e66cb53" x="0" y="0" width="555" height="43"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="24"/>
+				</textElement>
+				<text><![CDATA[Kantor Perwakilan]]></text>
+			</staticText>
+			<subreport>
+				<reportElement uuid="f5456692-d2b1-474e-bdc9-b29bd3f585db" x="0" y="43" width="555" height="157"/>
+				<subreportParameter name="tanggal">
+					<subreportParameterExpression><![CDATA[$P{tanggal}]]></subreportParameterExpression>
+				</subreportParameter>
+				<dataSourceExpression><![CDATA[$P{dataSourceSubreport}]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SubReportKantor}]]></subreportExpression>
+			</subreport>
+		</band>
 	</summary>
 </jasperReport>

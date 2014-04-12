@@ -24,4 +24,22 @@ public class BusinessService {
         
         return hasil;
     }
+    
+    public List<Kantor> semuaKantor(){
+        List<Kantor> hasil = new ArrayList<Kantor>();
+        
+        Kantor k = new Kantor();
+        k.setNama("Kantor Jakarta");
+        k.setAlamat("Jakarta");
+        k.setTelepon("021-987654321");
+        hasil.add(k);
+        
+        Kantor k1 = new Kantor();
+        k1.setNama("Kantor Bogor");
+        k1.setAlamat("Bogor");
+        k1.setTelepon("0251-987654321");
+        hasil.add(k1);
+        
+        return hasil;
+    }
 }
